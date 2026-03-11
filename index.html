@@ -7,43 +7,50 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            color: #fff;
             margin: 0;
             padding: 0;
             /* background-color: #f0f0f0; */
             background-color: black;
         }
 
-        .header {
+        header {
             background-color: #001f3f;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             color: #fff;
-            padding: 20px;
+            padding-top: 18px;
             text-align: left;
         }
 
         .container {
             display: grid;
-            grid-template-columns: 300px 300px 300px 300px;
-            grid-template-rows: auto auto;
-            justify-content: center;
+            grid-template-columns: 1fr;
             gap: 20px;
             padding: 20px;
+            max-width: 100%;
         }
 
-        .item {
+        .cell {
             text-align: center;
-            background-color: #fff;
+            background-color: #3c3c3c;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            min-height: fit-content;
+            overflow: hidden;
         }
 
 
-        .item img {
+        .cell img {
             border-radius: 4px;
-            max-height: 300px;
-            max-width: 300px;
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: cover;
         }
 
-        /* .item a {
+        /* .cell a {
             display: block;
             margin-top: 10px;
             color: #007BFF;
@@ -58,40 +65,147 @@
             aspect-ratio: 1 / 1;
             display: flex;
             justify-content: center;
-            align-items: center;
-            max-width: 300px;
-            max-height: 300px;
+            max-width: 100%;
+            max-height: 100%;
+            padding: 0;
         }
 
-        #about {
-            grid-column: 1 / 3;
-        }
-
-        #photo {
-            grid-column: 3;
-            aspect-ratio: 1/1;
-        }
-
-        #github {
-            grid-column: 4;
-            aspect-ratio: 1/1;
-        }
-
-        #email {
-            grid-column: 1;
-            grid-row: 2;
-            aspect-ratio: 1/1;
-        }
-
-        #experience {
-            grid-column: 2 / 4;
-            grid-row: 2;
-        }
-
+        #about,
+        #photo,
+        #github,
+        #email,
+        #experience,
         #linkedin {
-            grid-column: 4;
-            grid-row: 2;
-            aspect-ratio: 1/1;
+            grid-column: auto;
+            grid-row: auto;
+        }
+
+        @media (min-width: 620px) {
+            .container {
+                /* grid-template-columns: repeat(2, minmax(250px, 1fr)); */
+                grid-template-columns: repeat(2, 300px);
+                justify-content: center;
+            }
+
+            #about {
+                grid-column: 1 / span 2;
+                grid-row: 1;
+            }
+
+            #photo {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            #experience {
+                grid-column: 2;
+                grid-row: 2 / span 3;
+            }
+
+            #github {
+                grid-column: 1;
+                grid-row: 3;
+            }
+
+            #email {
+                grid-column: 1;
+                grid-row: 4;
+            }
+
+            #linkedin {
+                grid-column: 2;
+                grid-row: 5;
+            }
+
+            /* #photo,
+            #github,
+            #email,
+            #linkedin {
+                max-width: 100%;
+                max-height: 100%;
+            } */
+        }
+
+        /* Todo: adjust width */
+        @media (min-width: 937px) {
+            .container {
+                /* grid-template-columns: repeat(3, minmax(300px, 1fr)); */
+                grid-template-columns: repeat(3, 300px);
+            }
+
+            #about {
+                grid-column: 1 / span 2;
+                grid-row: 1;
+            }
+
+            #photo {
+                grid-column: 3;
+                grid-row: 1;
+            }
+
+            #github {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            #experience {
+                grid-column: 2 / span 2;
+                grid-row: 2;
+            }
+
+            #email {
+                grid-column: 2;
+                grid-row: 3;
+            }
+
+            #linkedin {
+                grid-column: 3;
+                grid-row: 3;
+            }
+        }
+
+        @media (min-width: 1259px) {
+            .container {
+                grid-template-columns: repeat(4, 300px);
+                grid-template-rows: auto auto;
+                justify-content: center;
+            }
+
+            #about {
+                grid-column: 1 / 3;
+            }
+
+            #photo {
+                grid-column: 3;
+                grid-row: 1;
+            }
+
+            #github {
+                grid-column: 4;
+                grid-row: 1;
+            }
+
+            #email {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            #experience {
+                grid-column: 2 / 4;
+                grid-row: 2;
+            }
+
+            #linkedin {
+                grid-column: 4;
+                grid-row: 2;
+            }
+
+            #photo,
+            #github,
+            #email,
+            #linkedin {
+                max-width: 300px;
+            }
         }
     </style>
     <script>
@@ -101,36 +215,63 @@
 </head>
 
 <body>
-    <div class="navbar">
-        <a href="#">Home</a>
-        <a href="/Projecten">Projecten</a>
-        <a href="/Contact">Contact Gegevens</a>
-    </div>
-    <div class="header" id="header1">
+    <header>
+        <div class="navbar">
+            <a href="#">Home</a>
+            <a href="/Projecten">Projecten</a>
+            <a href="/Contact">Contact</a>
+        </div>
         <H1>Jan Braaksma</H1>
         <!-- <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa.</p>
         <p> Fusce posuere, magna sed pulvinar ultricies, malesuada libero, sit amet commodo magna eros quis urna.</p>
         <p> Fusce est. Vivamus a tellus.</p> -->
-    </div>
+    </header>
     <div class="container" id="container1">
-        <div class="item" id="about">
-            <p>Over mij</p>
+        <div class="cell" id="about">
+            <h4>Over mij</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi euismod scelerisque eros pharetra gravida.
+                Nam ligula tortor, congue sed posuere in, accumsan eu magna. Suspendisse faucibus, enim ac rhoncus
+                consequat, dolor risus sollicitudin sem, non pharetra nisl libero vel libero. Aenean tempor gravida
+                elementum. Aenean venenatis, sapien a aliquam suscipit, tortor elit pharetra ex, vel ultricies nisl
+                justo quis arcu. Vivamus ullamcorper risus ac odio laoreet, sed venenatis mi fringilla. Vivamus lacinia
+                ornare ultrices. Nunc ultrices sodales accumsan. Sed vel nibh eget magna condimentum malesuada a ut
+                ligula. Mauris lacus sem, aliquam nec lobortis vitae, porta sit amet lorem. Mauris viverra dolor sed
+                nibh cursus, eu sodales sapien egestas.</p>
         </div>
-        <div class="item" id="photo">
-            <img src="assets/placeholder.png" alt="Foto van Jan">
+        <div class="cell" id="photo">
+            <img src="assets/pfp-fallback.png" alt="Foto van Jan">
         </div>
-        <div class="item" id="github">
+        <div class="cell" id="experience">
+            <h4>Ervaring</h4>
+            <p>Aliquam et imperdiet eros, ut ullamcorper ex. Nullam accumsan urna id sem sollicitudin, at sollicitudin
+                lorem porta. Vestibulum lacinia non sapien et ornare. Suspendisse et mi purus. Integer lobortis dolor ac
+                volutpat interdum. Phasellus tristique aliquam mauris, a cursus arcu. Donec orci magna, lacinia in nunc
+                nec, gravida consequat nulla.
+
+                Quisque nec mi vel velit pretium semper non egestas urna. Morbi lacus dolor, hendrerit eu hendrerit ac,
+                pulvinar in lorem. Maecenas dignissim metus felis, in semper tortor lobortis et. Nunc ut lacus id augue
+                laoreet mollis. Sed eu mollis nulla, ac viverra nibh. Phasellus cursus rutrum metus, efficitur volutpat
+                justo vehicula a. Etiam quis posuere diam.
+
+                Suspendisse quis rutrum ipsum. Nullam sed tortor elit. Nullam et rhoncus metus, vel sodales arcu. Sed
+                commodo turpis ac augue pharetra, sed gravida turpis rutrum. Etiam ultrices mi ac purus rhoncus,
+                sagittis ultricies mi ullamcorper. Pellentesque non rhoncus justo. Proin vel cursus urna, congue dictum
+                sapien. Donec dapibus ligula ac leo commodo tincidunt. Sed efficitur tincidunt nulla quis euismod.
+
+                Duis eget bibendum ligula. Nulla fringilla rutrum arcu, iaculis iaculis justo sodales id. Curabitur
+                ornare quam sed volutpat eleifend. In imperdiet lorem augue, sed maximus ligula hendrerit vitae. Etiam
+                ac pharetra nulla. Nullam non sapien sit amet orci tincidunt aliquet eu vel enim. Praesent urna quam,
+                laoreet mattis condimentum sed, pellentesque vitae tellus. Ut in tellus in ipsum porttitor euismod.</p>
+        </div>
+        <div class="cell" id="github">
             <img src="assets/placeholder.png" alt="Github Logo">
             <!-- <a href="https://github.com/Jan-Braaksma" target="_blank">TempText</a> -->
         </div>
-        <div class="item" id="email">
+        <div class="cell" id="email">
             <img src="assets/placeholder.png" alt="Email Pictogram">
             <!-- <a href="open.email.js" target="_blank">TempText</a> -->
         </div>
-        <div class="item" id="experience">
-            <p>Ervaring</p>
-        </div>
-        <div class="item" id="linkedin">
+        <div class="cell" id="linkedin">
             <img src="assets/placeholder.png" alt="Linked-In Logo">
             <!-- <a href="Jan.linkedin" target="_blank">TempText</a> -->
         </div>
