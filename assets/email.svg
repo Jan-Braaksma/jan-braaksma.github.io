@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="64 112 384 288"
+  width="384"
+  height="288"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">Email icon</title>
+  <desc id="desc">Envelope built from separate white shapes with transparent cut-out line details.</desc>
+
+  <defs>
+    <mask id="line-cutouts" maskUnits="userSpaceOnUse" x="64" y="112" width="384" height="288">
+      <rect x="64" y="112" width="384" height="288" fill="#fff" />
+      <g
+        fill="none"
+        stroke="#000"
+        stroke-width="28"
+        stroke-linecap="butt"
+        stroke-linejoin="miter"
+      >
+        <path d="M64 112 L256 284 L448 112" />
+        <path d="M64 400 L212 250" />
+        <path d="M448 400 L300 250" />
+      </g>
+    </mask>
+  </defs>
+
+  <g id="email-icon" fill="#fff" mask="url(#line-cutouts)">
+    <polygon points="64,112 448,112 256,284" />
+    <polygon points="64,112 64,400 212,250 256,284" />
+    <polygon points="448,112 448,400 300,250 256,284" />
+    <polygon points="64,400 448,400 300,250 212,250" />
+  </g>
+</svg>
