@@ -5,12 +5,36 @@
     border-style: ridge;
 }
 
+#github:hover {
+    background-color: #161b22;
+}
+
+#github:active {
+    background-color: #0d1117;
+}
+
 #email {
     background-color: #410093;
 }
 
+#email:hover {
+    background-color: #5a01c1;
+}
+
+#email:active {
+    background-color: #32006f;
+}
+
 #linkedin {
     background-color: #0a66c2;
+}
+
+#linkedin:hover {
+    background-color: #004182;
+}
+
+#linkedin:active {
+    background-color: #002f5f;
 }
 
 #linkedin img.small {
