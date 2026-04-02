@@ -72,6 +72,22 @@ h1 {
     overflow: hidden;
 }
 
+.cell a:link {
+    color: #7cc7ff;
+}
+
+.cell a:visited {
+    color: #d3a6ff;
+}
+
+.cell a:hover {
+    color: #b6e1ff;
+}
+
+.cell a:active {
+    color: #fff;
+}
+
 a.cell:hover {
     background-color: #505050;
 }
