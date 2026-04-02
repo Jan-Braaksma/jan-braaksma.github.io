@@ -3,12 +3,10 @@ body {
     color: #fff;
     margin: 0;
     padding: 0;
-    /* background-color: #f0f0f0; */
-    background-color: black;
+    background-color: #000;
 }
 
 header {
-    /* background-image: linear-gradient(to bottom, #1f2020 70%, black); */
     background-color: #1f2020;
     position: sticky;
     top: 0;
@@ -26,12 +24,11 @@ header::after {
     left: 0;
     right: 0;
     height: 20px;
-    background: linear-gradient(to bottom, #1f2020, black);
+    background: linear-gradient(to bottom, #1f2020, #000);
     pointer-events: none;
 }
 
 .navbar {
-    /* background-image: radial-gradient(black, #1f2020); */
     background-color: black;
     padding: 5px;
     border-radius: 50px;
@@ -81,17 +78,4 @@ a.cell:hover {
 
 a.cell:active {
     background-color: #2f2f2f;
-}
-
-.cell img {
-    border-radius: 4px;
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: cover;
-}
-
-.cell img.small {
-    max-height: 75px;
-    max-width: 75px;
-    align-self: center;
 }

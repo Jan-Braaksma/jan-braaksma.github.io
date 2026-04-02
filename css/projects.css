@@ -1,15 +1,94 @@
-.cell img {
-    width: 100%;
-    max-width: 345px;
-    /* height: 100%; */
-    max-height: 600px;
+.cell {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
 }
 
-@media (min-width: 660px) {}
+.cellMediaBox {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cellMediaBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#app-preview-landscape {
+    display: none;
+}
+
+@media (min-width: 660px) {
+    .container {
+        grid-template-columns: repeat(2, 300px);
+        grid-auto-rows: 300px;
+        justify-content: center;
+    }
+
+    #checkin {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+        display: flex;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    #checkin .cellMediaBox {
+        aspect-ratio: 16 / 10;
+        min-height: 45%;
+        align-self: stretch;
+    }
+
+    #checkin .cellMediaBox img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    #ReaSite {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    #dummy2 {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    #dummy3 {
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+    #dummy4 {
+        grid-column: 2;
+        grid-row: 4;
+    }
+
+    #app-preview-portrait {
+        display: none;
+    }
+
+    #app-preview-landscape {
+        display: block;
+        object-position: center bottom;
+    }
+}
 
 @media (min-width: 977px) {
     .container {
-        grid-template-columns: repeat(4, 300px);
+        grid-template-columns: repeat(3, 300px);
+        grid-auto-rows: 300px;
         justify-content: center;
     }
 
@@ -18,7 +97,7 @@
         grid-row: 1 / span 2;
     }
 
-    #dummy1 {
+    #ReaSite {
         grid-column: 3;
         grid-row: 1;
     }
@@ -39,4 +118,35 @@
     }
 }
 
-@media (min-width: 1299px) {}
+@media (min-width: 1299px) {
+    .container {
+        grid-template-columns: repeat(4, 300px);
+        grid-auto-rows: 300px;
+        justify-content: center;
+    }
+
+    #checkin {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+    }
+
+    #ReaSite {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    #dummy2 {
+        grid-column: 3;
+        grid-row: 2;
+    }
+
+    #dummy3 {
+        grid-column: 4;
+        grid-row: 1;
+    }
+
+    #dummy4 {
+        grid-column: 4;
+        grid-row: 2;
+    }
+}
