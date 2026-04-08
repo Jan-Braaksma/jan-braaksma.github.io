@@ -88,6 +88,13 @@ h1 {
     color: #fff;
 }
 
+a.cell {
+    border-radius: 8px;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
 a.cell:hover {
     background-color: #505050;
 }
