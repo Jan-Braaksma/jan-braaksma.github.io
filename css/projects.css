@@ -31,7 +31,7 @@ a {
 @media (min-width: 660px) {
     .container {
         grid-template-columns: repeat(2, 300px);
-        grid-auto-rows: 300px;
+        grid-auto-rows: 300px 300px auto 300px;
         justify-content: center;
     }
 
@@ -60,12 +60,16 @@ a {
         grid-row: 3;
     }
 
+    #current .cellMediaBox {
+        flex: 0 0 auto;
+    }
+
     #ReaSite {
         grid-column: 1;
         grid-row: 4;
     }
 
-    #dummy2 {
+    #CodeSamples {
         grid-column: 2;
         grid-row: 4;
     }
@@ -107,7 +111,7 @@ a {
         grid-row: 3;
     }
 
-    #dummy2 {
+    #CodeSamples {
         grid-column: 2;
         grid-row: 3;
     }
@@ -140,7 +144,7 @@ a {
         grid-row: 1;
     }
 
-    #dummy2 {
+    #CodeSamples {
         grid-column: 3;
         grid-row: 2;
     }
